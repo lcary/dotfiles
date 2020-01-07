@@ -1,0 +1,11 @@
+# git functions
+function _gitsync() {
+    # track origin from current branch using same branch name
+    branch_name=$(git branch | grep \* | cut -d ' ' -f2)
+    git branch --set-upstream-to=origin/$branch_name $branch_name
+}
+alias gitsync='_gitsync'
+
+# python venv
+alias act="source venv/bin/activate"
+alias mkvenv="python -m venv venv && source venv/bin/activate"
